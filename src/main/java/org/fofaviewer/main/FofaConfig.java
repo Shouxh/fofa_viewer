@@ -7,7 +7,8 @@ public class FofaConfig {
     private String email;
     private String key;
     private final String page = "1";
-    public final int max = 10000;
+    //企业版可以导出10w
+    public final int max = 100000;
     private String size = "1000";
     public String API = "https://fofa.info";
     public final String path = "/api/v1/search/all";
