@@ -447,6 +447,7 @@ public class MainController {
             if(bean.hasMoreData){ // 本地未完全加载时从网络请求进行加载
                 int maxCount = Math.min(bean.total, client.max);
                 int totalPage = (int)Math.ceil(maxCount/ Double.parseDouble(client.getSize()));
+                int exportPage = (int)Math.ceil(client.max/ Double.parseDouble(client.getSize()));
                 TextInputDialog td = new TextInputDialog();
                 td.setTitle(resourceBundle.getString("EXPORT_CONFIRM"));
                 td.setHeaderText(resourceBundle.getString("EXPORT_HINT1") + bean.total + resourceBundle.getString("EXPORT_HINT2")
@@ -458,7 +459,7 @@ public class MainController {
                         int inputPage = -1;
                         try{
                             inputPage = Integer.parseInt(result.get());
-                            if(inputPage <= 0 || inputPage > totalPage){
+                            if(inputPage <= 0 || inputPage > exportPage){
                                 DataUtil.showAlert(Alert.AlertType.ERROR, null, resourceBundle.getString("EXPORT_INPUT_NUM_HINT1")
                                         + totalPage + resourceBundle.getString("EXPORT_INPUT_NUM_HINT2")).showAndWait();
                                 return;
