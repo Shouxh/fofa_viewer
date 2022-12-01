@@ -55,7 +55,7 @@ public class DataUtil {
             map.put("title", tabTitle);
             excelWriter.fill(map, writeSheet0);
             excelWriter.fill(totalData, writeSheet0);
-            WriteSheet writeSheet1 = EasyExcel.writerSheet().build();
+            WriteSheet writeSheet1 = EasyExcel.writerSheet(resourceBundle.getString("EXPORT_FILENAME_SHEET2")).build();
             excelWriter.write(urls, writeSheet1);
             if(errorPage.length() == 0){
                 showAlert(Alert.AlertType.INFORMATION, null, resourceBundle.getString("EXPORT_MESSAGE1") + fileName).showAndWait();
