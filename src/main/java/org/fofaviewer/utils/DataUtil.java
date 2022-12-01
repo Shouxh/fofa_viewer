@@ -45,7 +45,11 @@ public class DataUtil {
     public static void exportToExcel(String fileName, String tabTitle, List<ExcelBean> totalData, List<List<String>> urls, StringBuilder errorPage) {
         ExcelWriter excelWriter = null;
         try{
-            excelWriter = EasyExcel.write(fileName).withTemplate(DataUtil.class.getResourceAsStream("/template.xlsx")).build();
+            if(Locale.getDefault().getLanguage().equals(Locale.CHINESE.getLanguage())){
+                excelWriter = EasyExcel.write(fileName).withTemplate(DataUtil.class.getResourceAsStream("/template.xlsx")).build();
+            }else{
+                excelWriter = EasyExcel.write(fileName).withTemplate(DataUtil.class.getResourceAsStream("/template_en.xlsx")).build();
+            }
             WriteSheet writeSheet0 = EasyExcel.writerSheet(resourceBundle.getString("EXPORT_FILENAME_SHEET1")).build();
             Map<String, Object> map = new HashMap<>();
             map.put("title", tabTitle);

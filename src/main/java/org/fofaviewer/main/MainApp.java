@@ -7,14 +7,14 @@ import javafx.stage.Stage;
 import org.fofaviewer.controllers.MainController;
 
 public class MainApp extends Application {
-    private final String version = "1.1.11";
+    private final String version = "1.3.1";
 
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/fofa_viewer.fxml"));
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
-        stage.setTitle("Fofa_Viewer v" + this.version+ " By f1ashine@WgpSec");
+        stage.setTitle("Fofa_Viewer v" + this.version+ " By f1ashine@WgpSec" + "Fixed by saltFish");
         stage.show();
         stage.setMinWidth(1100);
         stage.setMinHeight(800);
