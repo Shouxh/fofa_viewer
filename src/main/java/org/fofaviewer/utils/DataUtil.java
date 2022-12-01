@@ -50,12 +50,12 @@ public class DataUtil {
             }else{
                 excelWriter = EasyExcel.write(fileName).withTemplate(DataUtil.class.getResourceAsStream("/template_en.xlsx")).build();
             }
-            WriteSheet writeSheet0 = EasyExcel.writerSheet(resourceBundle.getString("EXPORT_FILENAME_SHEET1")).build();
+            WriteSheet writeSheet0 = EasyExcel.writerSheet().build();
             Map<String, Object> map = new HashMap<>();
             map.put("title", tabTitle);
             excelWriter.fill(map, writeSheet0);
             excelWriter.fill(totalData, writeSheet0);
-            WriteSheet writeSheet1 = EasyExcel.writerSheet(resourceBundle.getString("EXPORT_FILENAME_SHEET2")).build();
+            WriteSheet writeSheet1 = EasyExcel.writerSheet().build();
             excelWriter.write(urls, writeSheet1);
             if(errorPage.length() == 0){
                 showAlert(Alert.AlertType.INFORMATION, null, resourceBundle.getString("EXPORT_MESSAGE1") + fileName).showAndWait();
